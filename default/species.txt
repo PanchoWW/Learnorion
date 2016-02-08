@@ -697,12 +697,25 @@ Species
         [[AVERAGE_HAPPINESS]]
         [[GREAT_SUPPLY]]
         [[AVERAGE_DEFENSE_TROOPS]]
-     
+
         // not for description
         [[AVERAGE_PLANETARY_SHIELDS]]
         [[AVERAGE_PLANETARY_DEFENSE]]
         [[LARGE_PLANET]]
         [[BROAD_EP]]
+
+        EffectsGroup
+            scope = And [
+                Planet
+                Species name = "SP_GEORGE"
+                Not OwnedBy empire = Source.Owner   // would be redundant to re-assign ownership to own planets
+            ]
+            activation = And [
+                Planet
+                Not Unowned
+            ]
+            accountinglabel = "COMMUNATL_CONSCIOUSNESS_VISION_LABEL_SELF"
+            effects = SetVisibility visibility = Full empire = Source.Owner
     ]
     
     [[TUNDRA_BROAD_EP]]
